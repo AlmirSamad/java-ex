@@ -2,12 +2,14 @@ package EstudoEnum.Ex03.Entities;
 
 public class OrderItem {
     private Integer quantity;
+    private Double price;
     private Product product;
 
     public OrderItem(){}
 
-    public OrderItem(Integer quantity, Product product) {
+    public OrderItem(Integer quantity, Double price,Product product) {
         this.quantity = quantity;
+        this.price = price;
         this.product = product;
     }
 
@@ -17,6 +19,14 @@ public class OrderItem {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public Product getProduct() {
@@ -29,5 +39,10 @@ public class OrderItem {
 
     public Double subtotal(){
         return quantity * product.getPrice();
+    }
+
+    @Override
+    public String toString() {
+        return product.getName() + ", Quantity: " + quantity+", Subtotal: "+subtotal();
     }
 }
